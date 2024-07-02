@@ -13,17 +13,6 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="home"
-          element={
-            <PrivateRoute>
-              <Layout />
-            </PrivateRoute>
-          }
-        >
-          <Route index element={<HomePage />} />
-          <Route path=":boardId" element={<BoardPage />} />
-        </Route>
         <Route path="/" element={<Navigate to="/welcome" />} />
         <Route
           path="/welcome"
@@ -47,6 +36,10 @@ export default function App() {
               <RestrictedRoute component={<LoginForm />} redirectTo="/home" />
             }
           />
+        </Route>
+        <Route path="home" element={<PrivateRoute component={<Layout />} />}>
+          <Route index element={<HomePage />} />
+          <Route path=":boardId" element={<BoardPage />} />
         </Route>
       </Routes>
     </>
