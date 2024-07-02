@@ -15,14 +15,14 @@ export default function App() {
       <Routes>
         <Route
           path="home"
-          elements={
+          element={
             <PrivateRoute>
               <Layout />
             </PrivateRoute>
           }
         >
-          <Route index elements={<HomePage />} />
-          <Route path=":boardId" elements={<BoardPage />} />
+          <Route index element={<HomePage />} />
+          <Route path=":boardId" element={<BoardPage />} />
         </Route>
         <Route path="/" element={<Navigate to="/welcome" />} />
         <Route
